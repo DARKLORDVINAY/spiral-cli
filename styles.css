@@ -1,0 +1,94 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --light: #f1f5f9;
+  --dark: #1e293b;
+  --accent: #3b82f6;
+  --highlight: #22c55e66;
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1e293b, var(--bg));
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 280px minmax(320px, 560px);
+  gap: 20px;
+  width: min(980px, 100%);
+}
+
+.panel {
+  background: color-mix(in srgb, var(--panel), black 10%);
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+h1 { margin: 0; font-size: 1.5rem; }
+.subtitle { margin: 10px 0 14px; color: var(--muted); }
+.status-wrap {
+  background: #0b1220;
+  border: 1px solid #273449;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+#status { margin: 0; font-weight: 600; }
+.controls { margin-top: 16px; }
+button {
+  background: var(--accent);
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.05); }
+
+.legend {
+  margin: 18px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.board-wrap { display: grid; place-items: center; }
+.board {
+  width: min(84vw, 560px);
+  aspect-ratio: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px #0008;
+  border: 2px solid #64748b;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+.square {
+  display: grid;
+  place-items: center;
+  font-size: clamp(24px, 4.5vw, 46px);
+  user-select: none;
+}
+.light { background: var(--light); }
+.dark { background: #94a3b8; }
+.square.selected { outline: 3px solid var(--accent); outline-offset: -3px; }
+.square.highlight { background-image: radial-gradient(circle, var(--highlight) 24%, transparent 26%); }
+.square.last-move { box-shadow: inset 0 0 0 4px #f59e0b66; }
+
+@media (max-width: 860px) {
+  .app { grid-template-columns: 1fr; }
+  .panel { order: 2; }
+}
