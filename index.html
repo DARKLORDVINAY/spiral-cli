@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spiral Chess</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="panel">
+      <h1>Spiral Chess</h1>
+      <p class="subtitle">Play as White against a hard bot.</p>
+      <div class="status-wrap">
+        <p id="status" aria-live="polite">Your move.</p>
+      </div>
+      <div class="controls">
+        <button id="newGameBtn" type="button">New Game</button>
+      </div>
+      <ul class="legend">
+        <li>Click a piece, then click a highlighted square.</li>
+        <li>Bot uses minimax + alpha-beta pruning.</li>
+      </ul>
+    </section>
+
+    <section class="board-wrap">
+      <div id="board" class="board" role="grid" aria-label="Chess board"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
